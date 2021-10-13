@@ -1,0 +1,93 @@
+// AULIA NURSYAHBANI TOMAYAHU
+// 1900018255 - KELAS B
+// PRAKTIKUM PEMROGRAMAN WEB DINAMIS
+// SLOT RABU 09.00-10.30
+// PERTEMUAN 2 - KEGIATAN
+
+
+MariaDB [(none)]> CREATE DATABASE akademik;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [akademik]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| akademik           |
+| arisan             |
+| b_soal             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| soal_b             |
+| soal_b_            |
+| test               |
+| toko_bolu          |
+| uts_prpl           |
++--------------------+
+12 rows in set (0.001 sec)
+
+MariaDB [akademik]>
+
+MariaDB [(none)]> USE akademik;
+Database changed
+MariaDB [akademik]> CREATE TABLE mahasiswa(
+    -> nim varchar(5),
+    -> nama varchar(50),
+    -> jkel varchar(1),
+    -> alamat text,
+    -> tgllhr date,
+    -> Primary Key (nim)
+    -> );
+Query OK, 0 rows affected (0.021 sec)
+
+MariaDB [akademik]> SHOW TABLES;
++--------------------+
+| Tables_in_akademik |
++--------------------+
+| mahasiswa          |
++--------------------+
+1 row in set (0.003 sec)
+
+MariaDB [akademik]> DESC mahasiswa;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| nim    | varchar(5)  | NO   | PRI | NULL    |       |
+| nama   | varchar(50) | YES  |     | NULL    |       |
+| jkel   | varchar(1)  | YES  |     | NULL    |       |
+| alamat | text        | YES  |     | NULL    |       |
+| tgllhr | date        | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.010 sec)
+
+MariaDB [akademik]> INSERT INTO mahasiswa VALUES ('MHS01', 'Siti Aminah', 'P', 'SOLO', '1995-10-01');
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [akademik]> INSERT INTO mahasiswa VALUES ('MHS02', 'Rita', 'P', 'SOLO', '1999-01-01');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [akademik]> INSERT INTO mahasiswa VALUES ('MHS03', 'Amirudin', 'L', 'SEMARANG', '1998-08-11');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [akademik]> INSERT INTO mahasiswa VALUES ('MHS04', 'Siti Maryam', 'P', 'JAKARTA', '1995-04-15');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [akademik]> SELECT * FROM mahasiswa;
++-------+-------------+------+----------+------------+
+| nim   | nama        | jkel | alamat   | tgllhr     |
++-------+-------------+------+----------+------------+
+| MHS01 | Siti Aminah | P    | SOLO     | 1995-10-01 |
+| MHS02 | Rita        | P    | SOLO     | 1999-01-01 |
+| MHS03 | Amirudin    | L    | SEMARANG | 1998-08-11 |
+| MHS04 | Siti Maryam | P    | JAKARTA  | 1995-04-15 |
++-------+-------------+------+----------+------------+
+4 rows in set (0.002 sec)
+
+MariaDB [akademik]> SELECT * FROM mahasiswa WHERE alamat='SOLO';
++-------+-------------+------+--------+------------+
+| nim   | nama        | jkel | alamat | tgllhr     |
++-------+-------------+------+--------+------------+
+| MHS01 | Siti Aminah | P    | SOLO   | 1995-10-01 |
+| MHS02 | Rita        | P    | SOLO   | 1999-01-01 |
++-------+-------------+------+--------+------------+
